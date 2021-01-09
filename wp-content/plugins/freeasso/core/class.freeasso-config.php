@@ -46,7 +46,7 @@ class Freeasso_Config
      * Hawk key, see FreeAsso
      * @var string
      */
-    private $hawk_key = 'f71dbe52628a3f83a77ab494817525c6';
+    private $hawk_key = '30964d295d6f673df7dc75600ac6f345';
 
     /**
      * Constructor, only global class and uniq instance
