@@ -1,0 +1,49 @@
+version: "3.2"
+services:
+  php:
+    image: jeromeklam/u20_php
+    networks:
+      - frontend
+      - backend
+    ports:
+      - "8908:8080"
+    volumes:
+      - ./:/var/www/html/
+      - ~/.ssh/:/user.ssh
+  apache:
+    image: jeromeklam/u20_apache
+    depends_on:
+      - php
+      - mysql
+    networks:
+      - frontend
+      - backend
+    environment:
+      - DOCUMENTROOT=
+      - SERVERNAME=wp.freeasso.org
+    ports:
+      - "8980:80"
+    volumes:
+      - ./:/var/www/html/
+      - ./docker-logs:/var/log/apache2
+  mailhog:
+    image: jeromeklam/u20_mailhog
+    ports:
+      - "8925:8025"
+    networks:
+      - backend
+  mysql:
+    image: jeromeklam/u20_mariadb
+    ports:
+      - "8906:3306"
+    networks:
+      - backend
+    environment:
+      - LOCAL=true
+      - MYSQL_ROOT_PASSWORD=m0n1c4po
+    volumes:
+      - ./docker-db:/data
+      - ./howto:/data/dumps
+networks:
+  frontend:
+  backend:
