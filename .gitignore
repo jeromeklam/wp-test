@@ -9,5 +9,8 @@
 /.project
 /.buildpath
 
+# dev
+/wp-content/plugins/freeasso-wp
+
 # misc
 .DS_Store
