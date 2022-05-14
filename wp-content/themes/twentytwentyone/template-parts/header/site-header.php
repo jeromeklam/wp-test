@@ -18,5 +18,10 @@ $freeassoStats = Freeasso_Api_Stats::getFactory();
 
 	<?php get_template_part( 'template-parts/header/site-branding' ); ?>
 	<?php get_template_part( 'template-parts/header/site-nav' ); ?>
-	Kalaweit a déjà <?php echo $freeassoStats->getAmis(); ?> amis;
+	Kalaweit a déjà <?php echo $freeassoStats->getAmis(); ?> amis
+	Kalaweit soigne <?php do_shortcode('[FreeAsso_Gibbons]', '00'); ?> Gibbons
+	<?php do_shortcode('[FreeAsso_Hectares]', '00'); ?> hectares de forêt protégés
+
+
+	<?php do_shortcode('[FreeAsso_Causes]', '00'); ?>
 </header><!-- #masthead -->
